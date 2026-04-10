@@ -8,22 +8,25 @@ const btnDecoration = document.querySelector('.basket__link');
 
 // Загружаем продукты 
 async function init() {
-    const products = await loadProducts(); // Загружаем продукты
+    const products = await loadProducts();
 
-    // Добавляем делегирование событий на родительский элемент
-    document.addEventListener('click', function (event) {
-        if (event.target.classList.contains('product-basket')) {
-            const itemId = event.target.getAttribute('id'); // Получаем ID товара из атрибута id
-            const itemData = products.find(product => product.id === parseInt(itemId)); // Ищем товар по ID
+  document.addEventListener('click', function (event) {
+    const basketBtn = event.target.closest('.product-basket');
+    if (basketBtn) {
+        event.preventDefault(); // отменяем переход по href="#"
+        // Пытаемся получить id из атрибута id или data-id
+        const itemId = basketBtn.getAttribute('id') || basketBtn.getAttribute('data-id');
+        if (!itemId) return;
 
-            if (itemData) {
-                addItemToBasket(itemData); // Если товар найден, добавляем его в корзину
-                btnDecoration.style.display = 'flex'
-            } else {
-                console.error('Товар не найден');
-            }
+        const itemData = products.find(product => product.id === parseInt(itemId));
+        if (itemData) {
+            addItemToBasket(itemData);
+            btnDecoration.style.display = 'flex';
+        } else {
+            console.error('Товар не найден', itemId);
         }
-    });
+    }
+});
 }
 
 // Функция для отображения корзины

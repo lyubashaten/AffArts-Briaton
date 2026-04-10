@@ -18,29 +18,29 @@ export async function showSlider() {
 }
 
 function createSlides(arrSliderEl) {
-  const slideContainer = document.querySelector('.swiper-wrapper');
-  slideContainer.innerHTML = ''; 
+    const slideContainer = document.querySelector('.swiper-wrapper');
+    slideContainer.innerHTML = '';
 
-  arrSliderEl.forEach(product => {
-    const slideItem = document.createElement('li');
-    slideItem.classList.add('day-products__item', 'swiper-slide');
+    arrSliderEl.forEach(product => {
+        const slideItem = document.createElement('li');
+        slideItem.classList.add('day-products__item', 'swiper-slide');
 
-    slideItem.innerHTML = `
-        <div class="product-card product-card--small">
-              <div class="product-card__visual">
-                <img class="product-card__img" src="${product.image}" height="344" width="290" alt="Изображение товара">
-                <div class="product-card__more">
-                  <a href="#" class="product-card__link btn btn--icon">
-                    <span class="btn__text">В корзину</span>
-                    <svg width="24" height="24" aria-hidden="true">
-                      <use xlink:href="images/sprite.svg#icon-basket"></use>
-                    </svg>
-                  </a>
-                  <a href="#" class="product-card__link btn btn--secondary">
-                    <span class="btn__text">Подробнее</span>
-                  </a>
+        slideItem.innerHTML = `
+            <div class="product-card product-card--small">
+                <div class="product-card__visual">
+                    <img class="product-card__img" src="${product.image}" height="344" width="290" alt="Изображение товара">
+                    <div class="product-card__more">
+                        <a href="#" class="product-card__link btn btn--icon product-basket" data-id="${product.id}">
+                            <span class="btn__text">В корзину</span>
+                            <svg width="24" height="24" aria-hidden="true">
+                                <use xlink:href="images/sprite.svg#icon-basket"></use>
+                            </svg>
+                        </a>
+                        <a href="#" class="product-card__link btn btn--secondary">
+                            <span class="btn__text">Подробнее</span>
+                        </a>
+                    </div>
                 </div>
-              </div>
               <div class="product-card__info">
                 <h2 class="product-card__title">${product.name}</h2>
                 <span class="product-card__old">
