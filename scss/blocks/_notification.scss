@@ -1,0 +1,92 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999999; /* должен быть меньше, чем у notification */
+  display: none; /* по умолчанию скрыт */
+}
+.notification {
+   position: fixed;
+  z-index: 1000000;
+    left: 50%;
+    top: 50%;
+    width: 719px;
+    height: 256px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
+    border-radius: 16px;
+    background-color: $color-white;
+    padding: 60px;
+    transform: translate(-50%, -50%);
+
+    &--error {
+        display: flex;
+    }
+
+    &--success {
+        display: flex;
+    }
+
+    &__img {
+        width: 44px;
+        height: 44px;
+    }
+
+    &__btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 16px;
+            height: 2px;
+            background-color: $color-dark-gray;
+            transform-origin: center;
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        margin: 0;
+        padding: 0;
+        color: $color-black;
+    }
+
+    &__descr {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 140%;
+        letter-spacing: 0%;
+        margin: 0;
+        padding: 0;
+        color: $color-black;
+
+    }
+}
