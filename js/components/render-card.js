@@ -18,7 +18,7 @@ export function createProductCard(product) {
     card.innerHTML = `
     <div class="product-card">
         <div class="product-card__visual">
-            <img class="product-card__img" src="${product.image}" height="436" width="290" alt="${product.name}">
+            <img class="product-card__img" src="images/${product.image}" height="436" width="290" alt="${product.name}">
             <div class="product-card__more">
                 <a href="#" class="product-card__link btn btn--icon product-basket" id="${product.id}">
                     <span class="btn__text">В корзину</span>
