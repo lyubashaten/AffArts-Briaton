@@ -42,7 +42,7 @@ function addItemToBasket(item) {
     basketItem.classList.add('basket__item');
     basketItem.innerHTML = `
         <div class="basket__img">
-            <img src="${item.image}" alt="${item.name}" height="60" width="60">
+            <img src="images/${item.image}" alt="${item.name}" height="60" width="60">
         </div>
         <span class="basket__name">${item.name}</span>
         <span class="basket__price">${item.price.new} руб</span>
