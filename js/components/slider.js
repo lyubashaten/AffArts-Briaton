@@ -28,7 +28,7 @@ function createSlides(arrSliderEl) {
         slideItem.innerHTML = `
             <div class="product-card product-card--small">
                 <div class="product-card__visual">
-                    <img class="product-card__img" src="${product.image}" height="344" width="290" alt="Изображение товара">
+                    <img class="product-card__img" src="images/${product.image}" height="344" width="290" alt="Изображение товара">
                     <div class="product-card__more">
                         <a href="#" class="product-card__link btn btn--icon product-basket" data-id="${product.id}">
                             <span class="btn__text">В корзину</span>
